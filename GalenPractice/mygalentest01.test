@@ -1,0 +1,15 @@
+@@ parameterized
+ | browser |
+ | firefox |
+ | chrome |
+
+@@ parameterized
+ | deviceName | tags | size |
+ | Mobile | mobile | 480x800 |
+ | Tablet | tablet | 600x960 |
+ | Desktop | desktop | 1366x768 |
+
+Home page on ${deviceName} device in ${browser} browser
+	selenium ${browser} https://www.kerastase.com.au ${size}
+		properties custom.properties
+		check home-page.gspec --include ${tags}

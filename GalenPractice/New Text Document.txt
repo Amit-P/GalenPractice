@@ -1,0 +1,33 @@
+Run spec file:
+D:\GalenPractice>galen check home-page.gspec --url "http://galenframework.com/" --size "1024x768" --htmlreport "html-report"
+
+Run Test suite:
+D:\GalenPractice>galen test mygalentest01.test --htmlreport "html-report"
+
+Run Test suite in chrome:
+D:\GalenPractice>galen test mygalentest01.test -Dwebdriver.chrome.driver=D:\GalenPractice\chromedriver.exe --htmlreport "html-report"
+
+
+
+
+@@ parameterized
+ |browser |
+ |firefox |
+ |chrome |
+
+@@ parameterized
+ |deviceName | tags | size |
+ |Mobile | mobile | 320x600 |
+ |Tablet | tablet | 640x480 |
+ Desktop | desktop | 1024x800 |
+
+@@ set 
+	domain www.kerastase.com.au
+	base_url https://${domain}/
+	mobile_size 500x736
+
+Home page on ${deviceName} device in ${browser} browser
+	selenium ${browser} ${base_url}        ${mobile_size}
+		check home-page.gspec --include ${tags} --exclude "nomobile"
+
+

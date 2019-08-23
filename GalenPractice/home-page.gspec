@@ -1,0 +1,21 @@
+@objects
+    header-wrapper      xpath      //*[@id="main-container"]/div[1]/div/div/header/div/div
+    nav-bar-header		xpath      //*[@id="main-container"]/div[1]/div/div/header/div/div/nav/div[2]/div[1]
+
+= Main section =
+    header-wrapper:
+		@on mobile
+			width ${header-wrapper.mobile.width}
+		@on tablet
+			width ${header-wrapper.tablet.width}
+		@on desktop
+			width ${header-wrapper.desktop.width}
+	
+	nav-bar-header:
+		@on mobile
+			height ${nav-bar-header.mobile.height}
+		@on tablet
+			height 50px
+		@on desktop
+			height 60px
+		
